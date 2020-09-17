@@ -1,11 +1,11 @@
 function check() {
   const posts = document.querySelectorAll(".post");
-  posts.forEach(function(post) {
-    if (post.getAttribute("data-load") != null) {
+  posts.forEach(function (post) {
+     if (post.getAttribute("data-load") != null) {
       return null;
     }
     post.setAttribute("data-load", "true");
-    post.addEventListener("click",() => {
+    post.addEventListener("click", () => {
       const postId = post.getAttribute("data-id");
       const XHR = new XMLHttpRequest();
       XHR.open("GET", `/posts/${postId}`, true);
@@ -22,7 +22,8 @@ function check() {
         } else if (item.checked === false) {
           post.removeAttribute("data-check");
         }
-    };
+      };
+    });
   });
 }
-setInterval(check,1000);
+setInterval(check, 1000);
